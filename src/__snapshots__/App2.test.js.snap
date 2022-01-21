@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <h1>
+      app 2
+    </h1>
+    <ul>
+      <li>
+        <a
+          aria-current="page"
+          class="active"
+          href="/colors"
+        >
+          All colors
+        </a>
+      </li>
+      <li>
+        <a
+          class=""
+          href="/colors/red"
+        >
+          red
+        </a>
+      </li>
+      <li>
+        <a
+          class=""
+          href="/colors/blue"
+        >
+          blue
+        </a>
+      </li>
+      <li>
+        <a
+          class=""
+          href="/colors/green"
+        >
+          green
+        </a>
+      </li>
+    </ul>
+    <div>
+      <p>
+        Please Select A color
+      </p>
+      <a
+        href="/colors/new"
+      >
+        Create a new Color
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;

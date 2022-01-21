@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="undefined-div"
+    style="height: 80vh; width: 100vh;"
+  />
+</DocumentFragment>
+`;
