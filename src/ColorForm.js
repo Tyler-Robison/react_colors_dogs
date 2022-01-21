@@ -23,7 +23,7 @@ const ColorForm = ({ setColors, colors }) => {
         const color = formData.color
 
         // prevent changing to invalid color
-        if (!CSS.supports('color', color)) {
+        if (CSS.supports && !CSS.supports('color', color)) {
             alert(`${color} is invalid`);
             return
         }
