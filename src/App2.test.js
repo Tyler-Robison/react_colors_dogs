@@ -62,3 +62,21 @@ test('Allows us to create colors', function () {
     const colorText = app2.getByText('pink');
     expect(colorText).toBeInTheDocument();
 });
+
+test('Clicking on color makes correct colored div appear', function () {
+    const app2 = render((
+        <MemoryRouter initialEntries={['/']}>
+            <App2 />
+        </MemoryRouter>
+    ))
+
+    const text = app2.getByText('Please Select A color');
+    expect(text).toBeInTheDocument();
+
+    const colorText = app2.getByText('blue')
+    fireEvent.click(colorText);
+
+    const coloredDiv = app2.queryByTestId("blue-div");
+    expect(coloredDiv).toBeInTheDocument();
+    
+});
