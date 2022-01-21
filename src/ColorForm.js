@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 
-const ColorForm = ({ setColors, colors }) => {
+const ColorForm = ({ setColors, colors, CSSValidator }) => {
 
     const navigate = useNavigate();
 
@@ -23,17 +23,12 @@ const ColorForm = ({ setColors, colors }) => {
         const color = formData.color
 
         // prevent changing to invalid color
-        if (!CSS.supports('color', color)) {
+        const isCSSValid = CSSValidator()
+    
+        if (isCSSValid && !CSS.supports('color', color)) {
             alert(`${color} is invalid`);
             return
         }
-
-        // This version disables checking for valid CSS during testing, 
-        // but allows all tests to pass. 
-        // if (CSS.supports && !CSS.supports('color', color)) {
-        //     alert(`${color} is invalid`);
-        //     return
-        // }
 
         setColors([...colors, color])
         setFormData(INITIAL_STATE)
