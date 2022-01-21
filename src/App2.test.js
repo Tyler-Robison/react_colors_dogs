@@ -78,5 +78,39 @@ test('Clicking on a color makes correct colored div appear', function () {
 
     const coloredDiv = app2.getByTestId("blue-div");
     expect(coloredDiv).toBeInTheDocument();
-    
+});
+
+test('Colors can be reset', function () {
+    const app2 = render((
+        <MemoryRouter initialEntries={['/']}>
+            <App2 />
+        </MemoryRouter>
+    ))
+
+    const text = app2.getByText('Please Select A color');
+    expect(text).toBeInTheDocument();
+
+    const link = app2.getByText('Create a new Color')
+    fireEvent.click(link)
+
+    const colorInput = app2.getByLabelText('New Color')
+    const btn = app2.queryByText('Add color')
+    // console.log('btn', btn)
+
+    fireEvent.change(colorInput, { target: { value: 'purple' } })
+    fireEvent.click(btn)
+
+    // go back to homepage
+    const homepageText = app2.getByText('Create a new Color');
+    expect(homepageText).toBeInTheDocument();
+
+    // color was added
+    const colorText = app2.getByText('purple');
+    expect(colorText).toBeInTheDocument();
+
+    const resetBtn = app2.getByText('Reset Colors')
+    fireEvent.click(resetBtn);
+
+    const colorText2 = app2.queryByText('purple');
+    expect(colorText2).not.toBeInTheDocument();
 });

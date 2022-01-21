@@ -53,6 +53,9 @@ exports[`matches snapshot 1`] = `
         Create a new Color
       </a>
     </div>
+    <button>
+      Reset Colors
+    </button>
   </div>
 </DocumentFragment>
 `;
